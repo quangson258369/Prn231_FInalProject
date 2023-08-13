@@ -5,19 +5,15 @@ namespace API.Models;
 
 public partial class User
 {
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
-    public int? UserTypeId { get; set; }
+    public string DisplayName { get; set; }
 
     public string UserName { get; set; }
 
-    public string UserPhone { get; set; }
+    public string Password { get; set; }
 
-    public string UserAddress { get; set; }
+    public int IdRole { get; set; }
 
-    public bool? Status { get; set; }
-
-    public virtual ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
-
-    public virtual UserType UserType { get; set; }
+    public virtual UserRole IdRoleNavigation { get; set; }
 }

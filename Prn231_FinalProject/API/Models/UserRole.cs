@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace API.Models;
 
-public partial class UserType
+public partial class UserRole
 {
-    public int UserTypeId { get; set; }
+    public int Id { get; set; }
 
-    public string UserTypeName { get; set; }
+    public string DisplayName { get; set; }
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 }
