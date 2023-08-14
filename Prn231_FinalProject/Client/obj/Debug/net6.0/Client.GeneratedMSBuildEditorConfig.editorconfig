@@ -12,7 +12,7 @@ build_property.RootNamespace = Client
 build_property.ProjectDir = D:\PRN231\Prn231_Project\Prn231_FInalProject\Prn231_FinalProject\Client\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\PRN231\Prn231_Project\Prn231_FInalProject\Prn231_FinalProject\Client
 build_property._RazorSourceGeneratorDebug = 
 
