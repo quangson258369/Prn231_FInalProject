@@ -2,7 +2,7 @@
 
 namespace Client.Controllers
 {
-    public class AdminController : Controller
+    public class InputController : Controller
     {
         public IActionResult Index()
         {
