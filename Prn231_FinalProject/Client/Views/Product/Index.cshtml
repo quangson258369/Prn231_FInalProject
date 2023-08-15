@@ -56,3 +56,195 @@
 
     </div>
 </div>
+<div class="modal fade" id="edit-Product">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Product</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="Item Code">Item Code</label>
+                                <input type="text" class="form-control" id="Item Code" placeholder="Item Code">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" id="Name" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Variant">Variant</label>
+                                <input type="text" class="form-control" id="Variant" placeholder="Variant">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Unit Value">Unit Value</label>
+                                <input type="text" class="form-control" id="Unit Value" placeholder="Unit Value">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Unit Name">Unit Name</label>
+                                <select class="form-control">
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Category">Category</label>
+                                <select class="form-control">
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Net Price">Net Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Production Cost">Production Cost</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Markup %">Markup %</label>
+                                <input type="text" class="form-control" id="Markup %" placeholder="%">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Markup Price">Markup Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Discount">Discount</label>
+                                <input type="number" class="form-control" id="Discount" placeholder="%">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Discount Price">Discount Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Sales Price">Sales Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Reorder Level">Reorder Level</label>
+                                <input type="text" class="form-control" id="Reorder Level" placeholder="Reorder Level">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Stock Quantity">Stock Quantity</label>
+                                <input type="text" class="form-control" id="Stock Quantity" placeholder="Stock Quantity">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Expiry Date">Expiry Date</label>
+                                <input type="text" class="form-control" id="Expiry Date" placeholder="Expiry Date">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-rounded">Save</button>
+                        <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <!-- /.card-body -->
+
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="add-Product">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Product</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="Item Code">Item Code</label>
+                                <input type="text" class="form-control" id="Item Code" placeholder="Item Code">
+                            </div>
+                            <div class="form-group col-md-8">
+                                <label for="Name">Name</label>
+                                <input type="text" class="form-control" id="Name" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Variant">Variant</label>
+                                <input type="text" class="form-control" id="Variant" placeholder="Variant">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Unit Value">Unit Value</label>
+                                <input type="text" class="form-control" id="Unit Value" placeholder="Unit Value">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Unit Name">Unit Name</label>
+                                <select class="form-control">
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Category">Category</label>
+                                <select class="form-control">
+                                    <option>Category 1</option>
+                                    <option>Category 2</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Net Price">Net Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Production Cost">Production Cost</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Markup %">Markup %</label>
+                                <input type="text" class="form-control" id="Markup %" placeholder="%">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Markup Price">Markup Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Discount">Discount</label>
+                                <input type="number" class="form-control" id="Discount" placeholder="%">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Discount Price">Discount Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Sales Price">Sales Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Reorder Level">Reorder Level</label>
+                                <input type="text" class="form-control" id="Reorder Level" placeholder="Reorder Level">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Stock Quantity">Stock Quantity</label>
+                                <input type="text" class="form-control" id="Stock Quantity" placeholder="Stock Quantity">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="Expiry Date">Expiry Date</label>
+                                <input type="text" class="form-control" id="Expiry Date" placeholder="Expiry Date">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-rounded">Save</button>
+                        <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <!-- /.card-body -->
+
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>

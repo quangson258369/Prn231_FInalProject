@@ -50,9 +50,7 @@
                                         <a href="#" data-toggle="tooltip" title="Edit">
                                             <button type="button" class="btn btn-primary btn-sm btn-rounded" data-toggle="modal" data-target="#edit-Invoice"><i class="ti-pencil-alt btn-icon-prepend"></i></button>
                                         </a>
-                                        <a href="#" data-toggle="tooltip" title="Add Sales">
-                                            <button type="button" class="btn btn-success btn-sm btn-rounded" data-toggle="modal" data-target="#add-Sales"><i class="ti-plus btn-icon-prepend"></i></button>
-                                        </a>
+
                                     </td>
                                 </tr>
                             </tbody>
@@ -62,4 +60,88 @@
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="edit-Invoice">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Invoice</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="Total Amount">Total Amount</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Discount Price">Discount Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Tendered">Tendered</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Change">Change</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-rounded">Save</button>
+                        <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <!-- /.card-body -->
+
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="add-Invoice">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Invoice</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="Total Amount">Total Amount</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Discount Price">Discount Price</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Tendered">Tendered</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="Change">Change</label>
+                                <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-rounded">Save</button>
+                        <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <!-- /.card-body -->
+
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
 </div>
