@@ -1,5 +1,15 @@
-﻿@{
+﻿@using Client.Models
+@using Microsoft.AspNetCore.Http
+@{
     ViewData["Title"] = "Home Page";
+    string data = Context.Session.GetString("product");
+    List<InStock> inStocks = System.Text.Json.JsonSerializer.Deserialize<List<InStock>>(data);
+
+    string data2 = Context.Session.GetString("info");
+    List<InputInfo> input = System.Text.Json.JsonSerializer.Deserialize<List<InputInfo>>(data2);
+
+    //string data3 = Context.Session.GetString("output");
+    //List<OutputInfo> output = System.Text.Json.JsonSerializer.Deserialize<List<OutputInfo>>(data3);
 }
 <div class="content-wrapper" style="background-color:#bddcff;">
     <div class="row">
@@ -15,6 +25,8 @@
                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">P 34,040.00</h3>
                         <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                     </div>
+                    <p class="mb-0 mt-2 text-danger"><span class="text-black ml-1"><small>This Month</small></span></p>
+
                 </div>
             </div>
         </div>
@@ -26,6 +38,8 @@
                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">P 30,118.00</h3>
                         <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                     </div>
+                    <p class="mb-0 mt-2 text-danger"><span class="text-black ml-1"><small>This Month</small></span></p>
+
                 </div>
             </div>
         </div>
@@ -37,6 +51,8 @@
                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">P 306,897.00</h3>
                         <i class="ti-calendar icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                     </div>
+                    <p class="mb-0 mt-2 text-danger"><span class="text-black ml-1"><small>This Month</small></span></p>
+
                 </div>
             </div>
         </div>
@@ -51,17 +67,22 @@
                                     <th>ProductId</th>
                                     <th>ProductName</th>
                                     <th>Quantity</th>
-                                    <th>Date</th>
+
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @foreach (var item in inStocks)
+                                {
+                                    <tr>
 
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                </tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Quantity</td>
+
+                                    </tr>
+                                }
+
+
                             </tbody>
                         </table>
                     </div>
@@ -84,13 +105,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                @foreach (var item in input)
+                                {
+                                    <tr>
 
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                </tr>
+                                        <td>@item.IdObjectNavigation.Id</td>
+                                        <td>@item.IdObjectNavigation.DisplayName</td>
+                                        <td>@item.Count</td>
+                                        <td>@item.IdInputNavigation.DateInput</td>
+
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -112,6 +137,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
 
                                     <td>Data</td>
