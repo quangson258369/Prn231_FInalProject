@@ -16,7 +16,7 @@ namespace API.Controllers
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(_context.OutputInfos.Include(o => o.IdOutputInfoNavigation).Include(o => o.IdObjectNavigation).ToList());
+            return Ok(_context.OutputInfos.Include(o => o.IdOutputNavigation).Include(o => o.IdObjectNavigation).ToList());
         }
     }
 }

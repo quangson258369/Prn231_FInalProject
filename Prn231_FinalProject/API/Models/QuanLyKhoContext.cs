@@ -132,6 +132,9 @@ public partial class QuanLyKhoContext : DbContext
             entity.Property(e => e.IdObject)
                 .IsRequired()
                 .HasMaxLength(128);
+            entity.Property(e => e.IdOutput)
+                .IsRequired()
+                .HasMaxLength(128);
 
             entity.HasOne(d => d.IdCustomerNavigation).WithMany(p => p.OutputInfos)
                 .HasForeignKey(d => d.IdCustomer)
@@ -147,6 +150,11 @@ public partial class QuanLyKhoContext : DbContext
                 .HasForeignKey(d => d.IdObject)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OutputInf__IdObj__3D5E1FD2");
+
+            entity.HasOne(d => d.IdOutputNavigation).WithMany(p => p.OutputInfos)
+                .HasForeignKey(d => d.IdOutput)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_OutputInfo_Output");
         });
 
         modelBuilder.Entity<Suplier>(entity =>

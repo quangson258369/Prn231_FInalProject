@@ -1,4 +1,7 @@
-﻿namespace API.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace API.Models;
 
 public partial class OutputInfo
 {
@@ -13,10 +16,14 @@ public partial class OutputInfo
     public int? Count { get; set; }
 
     public string Status { get; set; }
-    public virtual OutputInfo IdOutputInfoNavigation { get; set; }
+
+    public string IdOutput { get; set; }
+
     public virtual Customer IdCustomerNavigation { get; set; }
 
     public virtual InputInfo IdInputInfoNavigation { get; set; }
 
     public virtual Object IdObjectNavigation { get; set; }
+
+    public virtual Output IdOutputNavigation { get; set; }
 }
