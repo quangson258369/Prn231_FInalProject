@@ -5,17 +5,17 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class UnitController : ControllerBase
     {
         private QuanLyKhoContext _context;
-        public CustomerController(QuanLyKhoContext context)
+        public UnitController(QuanLyKhoContext context)
         {
             _context = context;
         }
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(_context.Supliers.ToList());
+            return Ok(_context.Units.ToList());
         }
     }
 }

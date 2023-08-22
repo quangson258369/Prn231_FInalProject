@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using API.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
@@ -6,5 +7,15 @@ namespace API.Controllers
     [ApiController]
     public class SupplierController : ControllerBase
     {
+        private QuanLyKhoContext _context;
+        public SupplierController(QuanLyKhoContext context)
+        {
+            _context = context;
+        }
+        [HttpGet]
+        public IActionResult List()
+        {
+            return Ok(_context.Supliers.ToList());
+        }
     }
 }
