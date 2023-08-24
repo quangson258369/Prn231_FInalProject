@@ -7,8 +7,8 @@ namespace API.Controllers
     [ApiController]
     public class UnitController : ControllerBase
     {
-        private QuanlyKhoContext _context;
-        public UnitController(QuanlyKhoContext context)
+        private QuanLyKhoContext _context;
+        public UnitController(QuanLyKhoContext context)
         {
             _context = context;
         }
