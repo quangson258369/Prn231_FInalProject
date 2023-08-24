@@ -9,7 +9,7 @@ public partial class OutputInfo
 
     public string IdObject { get; set; }
 
-    public string IdInputSelct { get; set; }
+    public string IdInputInfo { get; set; }
 
     public int IdCustomer { get; set; }
 
@@ -21,7 +21,7 @@ public partial class OutputInfo
 
     public virtual Customer IdCustomerNavigation { get; set; }
 
-    public virtual InputSelect IdInputSelctNavigation { get; set; }
+    public virtual InputInfo IdInputInfoNavigation { get; set; }
 
     public virtual Object IdObjectNavigation { get; set; }
 

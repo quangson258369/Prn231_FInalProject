@@ -23,5 +23,5 @@ public partial class InputInfo
 
     public virtual Object IdObjectNavigation { get; set; }
 
-    public virtual ICollection<InputSelect> InputSelects { get; set; } = new List<InputSelect>();
+    public virtual ICollection<OutputInfo> OutputInfos { get; set; } = new List<OutputInfo>();
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace API.Models;
+﻿namespace API.Models;
 
 public partial class Object
 {
@@ -13,15 +10,15 @@ public partial class Object
 
     public int IdSuplier { get; set; }
 
-    public string Qrcode { get; set; }
+    public string? Qrcode { get; set; }
 
-    public string BarCode { get; set; }
+    public string? BarCode { get; set; }
 
-    public virtual Suplier IdSuplierNavigation { get; set; }
+    public virtual Suplier? IdSuplierNavigation { get; set; }
 
-    public virtual Unit IdUnitNavigation { get; set; }
+    public virtual Unit? IdUnitNavigation { get; set; }
 
-    public virtual ICollection<InputInfo> InputInfos { get; set; } = new List<InputInfo>();
+    public virtual ICollection<InputInfo>? InputInfos { get; set; } = new List<InputInfo>();
 
-    public virtual ICollection<OutputInfo> OutputInfos { get; set; } = new List<OutputInfo>();
+    public virtual ICollection<OutputInfo>? OutputInfos { get; set; } = new List<OutputInfo>();
 }

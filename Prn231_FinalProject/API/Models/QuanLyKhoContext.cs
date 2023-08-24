@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Models;
 
-public partial class QuanlyKhoContext : DbContext
+public partial class QuanLyKhoContext : DbContext
 {
-    public QuanlyKhoContext()
+    public QuanLyKhoContext()
     {
     }
 
-    public QuanlyKhoContext(DbContextOptions<QuanlyKhoContext> options)
+    public QuanLyKhoContext(DbContextOptions<QuanLyKhoContext> options)
         : base(options)
     {
     }
@@ -20,8 +20,6 @@ public partial class QuanlyKhoContext : DbContext
     public virtual DbSet<Input> Inputs { get; set; }
 
     public virtual DbSet<InputInfo> InputInfos { get; set; }
-
-    public virtual DbSet<InputSelect> InputSelects { get; set; }
 
     public virtual DbSet<Object> Objects { get; set; }
 
@@ -39,7 +37,7 @@ public partial class QuanlyKhoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("server=DESKTOP-MOH7P06\\SQLEXPRESS; database=QuanlyKho;uid=sa;pwd=12345678;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("server=LAPTOP-1QS4KN4J; database=QuanLyKho;uid=sa;pwd=123;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -91,18 +89,6 @@ public partial class QuanlyKhoContext : DbContext
                 .HasConstraintName("FK__InputInfo__IdObj__38996AB5");
         });
 
-        modelBuilder.Entity<InputSelect>(entity =>
-        {
-            entity.ToTable("InputSelect");
-
-            entity.Property(e => e.Id).HasMaxLength(128);
-            entity.Property(e => e.IdInputInfo).HasMaxLength(128);
-
-            entity.HasOne(d => d.IdInputInfoNavigation).WithMany(p => p.InputSelects)
-                .HasForeignKey(d => d.IdInputInfo)
-                .HasConstraintName("FK_InputSelect_InputInfo");
-        });
-
         modelBuilder.Entity<Object>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Object__3214EC07806B105E");
@@ -140,7 +126,7 @@ public partial class QuanlyKhoContext : DbContext
             entity.ToTable("OutputInfo");
 
             entity.Property(e => e.Id).HasMaxLength(128);
-            entity.Property(e => e.IdInputSelct)
+            entity.Property(e => e.IdInputInfo)
                 .IsRequired()
                 .HasMaxLength(128);
             entity.Property(e => e.IdObject)
@@ -155,10 +141,10 @@ public partial class QuanlyKhoContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OutputInf__IdCus__3B75D760");
 
-            entity.HasOne(d => d.IdInputSelctNavigation).WithMany(p => p.OutputInfos)
-                .HasForeignKey(d => d.IdInputSelct)
+            entity.HasOne(d => d.IdInputInfoNavigation).WithMany(p => p.OutputInfos)
+                .HasForeignKey(d => d.IdInputInfo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OutputInfo_InputSelect");
+                .HasConstraintName("FK__OutputInf__IdInp__3C69FB99");
 
             entity.HasOne(d => d.IdObjectNavigation).WithMany(p => p.OutputInfos)
                 .HasForeignKey(d => d.IdObject)
