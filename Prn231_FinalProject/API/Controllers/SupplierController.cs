@@ -7,8 +7,8 @@ namespace API.Controllers
     [ApiController]
     public class SupplierController : ControllerBase
     {
-        private QuanLyKhoContext _context;
-        public SupplierController(QuanLyKhoContext context)
+        private QuanlyKhoContext _context;
+        public SupplierController(QuanlyKhoContext context)
         {
             _context = context;
         }

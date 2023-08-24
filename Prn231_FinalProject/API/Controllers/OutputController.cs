@@ -8,8 +8,8 @@ namespace API.Controllers
     [ApiController]
     public class OutputController : ControllerBase
     {
-        private QuanLyKhoContext _context;
-        public OutputController(QuanLyKhoContext context)
+        private QuanlyKhoContext _context;
+        public OutputController(QuanlyKhoContext context)
         {
             _context = context;
         }
@@ -19,7 +19,7 @@ namespace API.Controllers
             return Ok(_context.OutputInfos.Include(o => o.IdOutputNavigation).Include(o => o.IdObjectNavigation).ToList());
         }
 
-        [HttpPost("api/CreateNewOutPut")]
+        [HttpPost("CreateNewOutPut")]
         public IActionResult CreateNewOutPut(Output output)
         {
             try
@@ -35,7 +35,7 @@ namespace API.Controllers
                 return StatusCode(521, "Can't add new ");
             }
         }
-        [HttpPost("api/CreateNewOutPutInfos")]
+        [HttpPost("CreateNewOutPutInfos")]
         public IActionResult CreateNewOutPutInfos(OutputInfo output)
         {
             try
@@ -51,7 +51,7 @@ namespace API.Controllers
                 return StatusCode(521, "Can't add new ");
             }
         }
-        [HttpPut("api/UpdateOutputInfo/{id}")]
+        [HttpPut("UpdateOutputInfo/{id}")]
         public IActionResult UpdateOutputInfo(string id, OutputInfo output)
         {
             try

@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(x =>
                 x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-builder.Services.AddDbContext<QuanLyKhoContext>(
+builder.Services.AddDbContext<QuanlyKhoContext>(
     opt => opt.UseSqlServer(
         builder.Configuration.GetConnectionString("NorthwindConStr"))
     );

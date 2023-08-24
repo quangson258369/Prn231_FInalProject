@@ -7,15 +7,15 @@ namespace API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private QuanLyKhoContext _context;
-        public CustomerController(QuanLyKhoContext context)
+        private QuanlyKhoContext _context;
+        public CustomerController(QuanlyKhoContext context)
         {
             _context = context;
         }
         [HttpGet]
         public IActionResult List()
         {
-            return Ok(_context.Supliers.ToList());
+            return Ok(_context.Customers.ToList());
         }
     }
 }
