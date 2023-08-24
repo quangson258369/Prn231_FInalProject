@@ -8,8 +8,8 @@ namespace API.Controllers
     [ApiController]
     public class InputController : ControllerBase
     {
-        private QuanlyKhoContext _context;
-        public InputController(QuanlyKhoContext context)
+        private QuanLyKhoContext _context;
+        public InputController(QuanLyKhoContext context)
         {
             _context = context;
         }
@@ -18,14 +18,12 @@ namespace API.Controllers
         {
             return Ok(_context.InputInfos.Include(o => o.IdInputNavigation).Include(o => o.IdObjectNavigation).ToList());
         }
-        [HttpGet("api/GetAllInputs")]
+        [HttpGet("GetAllInputs")]
         public IActionResult GetAllInputs()
         {
             try
             {
-                // Retrieve all Input records from the database including related data (InputInfos, etc.)
                 var inputs = _context.Inputs
-                    //.Include(i => i.InputInfos) // Include related InputInfos if needed
                     .ToList();
 
                 return Ok(inputs); // Return the list of Input records as JSON
@@ -49,7 +47,8 @@ namespace API.Controllers
 
             return Ok(inputAndInputInfo);
         }
-        [HttpPost("api/CreateNewInPut")]
+
+        [HttpPost("CreateNewInPut")]
         public IActionResult CreateNewInPut(Input input)
         {
             try
@@ -64,7 +63,7 @@ namespace API.Controllers
                 return StatusCode(521, "Can't add new ");
             }
         }
-        [HttpPost("api/CreateNewInPutInfo")]
+        [HttpPost("CreateNewInPutInfo")]
         public IActionResult CreateNewInPutInfos(InputInfo inputInfo)
         {
             try
@@ -80,7 +79,7 @@ namespace API.Controllers
                 return StatusCode(521, "Can't add new ");
             }
         }
-        [HttpDelete("api/DeleteInput")]
+        [HttpDelete("DeleteInput")]
         public IActionResult DeleteInput(string id)
         {
             try

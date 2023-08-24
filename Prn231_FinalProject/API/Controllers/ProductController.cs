@@ -7,8 +7,8 @@ namespace API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private QuanlyKhoContext _context;
-        public ProductController(QuanlyKhoContext context)
+        private QuanLyKhoContext _context;
+        public ProductController(QuanLyKhoContext context)
         {
             _context = context;
         }
@@ -33,7 +33,6 @@ namespace API.Controllers
                 _context.Objects.Add(p);
                 int result = _context.SaveChanges();
                 return Ok(result);
-
             }
             catch
             {
