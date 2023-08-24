@@ -62,7 +62,7 @@ namespace API.Controllers
                     OutputIf.IdCustomer = output.IdCustomer;
                     OutputIf.IdObject = output.IdObject;
                     OutputIf.Count = output.Count;
-                    OutputIf.IdInputInfo = output.IdInputInfo;
+                    OutputIf.IdInputSelct = output.IdInputSelct;
                     OutputIf.Status = output.Status;
                     _context.OutputInfos.Update(OutputIf);
                     _context.SaveChanges();

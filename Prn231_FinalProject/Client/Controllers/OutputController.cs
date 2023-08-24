@@ -55,7 +55,7 @@ namespace Client.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> addOutPut(OutputInfo output)
+        public async Task<IActionResult> addOutPut()
         {
             DateTime timeOutput = DateTime.Now;
             var id = GenerateRandom();
@@ -76,20 +76,43 @@ namespace Client.Controllers
                 DateOutput = timeOutput,
             };
 
-            string data = JsonSerializer.Serialize(output);
-            await client.PostAsync(OutApiUrl + "", new StringContent(data, Encoding.UTF8, "application/json"));
+            string data = JsonSerializer.Serialize(o);
+            await client.PostAsync(OutputApiUrl + "/CreateNewOutPut", new StringContent(data, Encoding.UTF8, "application/json"));
+            string idObject = Request.Form["productId"];
+            string quantity = Request.Form["Quantity"];
+            string customerId = Request.Form["customerId"];
 
-
-
-
-            output.IdOutput = "" + id;
-
-            if (ModelState.IsValid)
+            HttpResponseMessage response2 = await client.GetAsync(InputApiUrl);
+            string strData2 = await response.Content.ReadAsStringAsync();
+            var option2 = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+            List<Models.InputInfo> listInfo = JsonSerializer.Deserialize<List<Models.InputInfo>>(strData2, option2);
+            var count = 0;
+            foreach (var item in listInfo)
             {
-                string data2 = JsonSerializer.Serialize(output);
-                await client.PostAsync(OutApiUrl, new StringContent(data, Encoding.UTF8, "application/json"));
-                return RedirectToAction(nameof(Index));
+                if (item.IdObject.Equals(idObject))
+                {
+                    count += item.Count;
+                }
             }
+            if (Int32.Parse(quantity) > count)
+            {
+                return View();
+            }
+
+            OutputInfo output = new OutputInfo()
+            {
+                Id = "" + id,
+                IdObject = idObject,
+                Count = Int32.Parse(quantity),
+                Status = "Success",
+                IdOutput = "" + id,
+                IdCustomer = Int32.Parse(customerId),
+                IdInputSelct = "" + GenerateRandom(),
+            };
+            string data2 = JsonSerializer.Serialize(output);
+            await client.PostAsync(OutputApiUrl + "/CreateNewOutPutInfos", new StringContent(data, Encoding.UTF8, "application/json"));
+            return RedirectToAction(nameof(Index));
+
             return View();
         }
 
