@@ -3,3 +3,34 @@
 *@
 @{
 }
+@model List<Customer>
+
+<h2>Customers</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Display Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>More Info</th>
+            <th>Contract Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.DisplayName</td>
+                <td>@customer.Address</td>
+                <td>@customer.Phone</td>
+                <td>@customer.Email</td>
+                <td>@customer.MoreInfo</td>
+                <td>@customer.ContractDate</td>
+            </tr>
+        }
+    </tbody>
+</table>

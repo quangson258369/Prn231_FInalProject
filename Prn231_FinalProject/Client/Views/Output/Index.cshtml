@@ -70,34 +70,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" asp-action="editOutput" asp-controller="Output">
+                    <form role="form">
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label for="Item">Product</label>
-
+                                    <label for="Item">Item</label>
                                     <select class="form-control">
-                                        @foreach (var item in ViewBag.SelectListProduct)
-                                        {
-                                            <option value="@item.Value">@item.Text</option>
-                                        }
+                                        <option>Category 1</option>
+                                        <option>Category 2</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="Item">Customer</label>
-
-                                    <select class="form-control">
-                                        @foreach (var item in ViewBag.SelectListCustomer)
-                                        {
-                                            <option value="@item.Value">@item.Text</option>
-                                        }
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="Sale Quantity">Quantity</label>
+                                    <label for="Sale Quantity">Sale Quantity</label>
                                     <input type="number" class="form-control" id="Sale Quantity" placeholder="Sale Quantity">
                                 </div>
-
+                                <div class="form-group col-md-12">
+                                    <label for="Total">Total</label>
+                                    <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-rounded">Save</button>
                             <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
@@ -121,32 +111,31 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="post" asp-action="addOutput" asp-controller="Output">
+                    <form method="post" action="addOutPut">
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label for="Item">Product</label>
                                     <select class="form-control">
-                                        @foreach (var item in ViewBag.SelectListProduct)
-                                        {
-                                            <option value="@item.Value">@item.Text</option>
-                                        }
+                                        <option>Category 1</option>
+                                        <option>Category 2</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="Item">Customer</label>
                                     <select class="form-control">
-                                        @foreach (var item in ViewBag.SelectListCustomer)
-                                        {
-                                            <option value="@item.Value">@item.Text</option>
-                                        }
+                                        <option>Category 1</option>
+                                        <option>Category 2</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="Sale Quantity">Quantity</label>
-                                    <input type="number" class="form-control" id="Sale Quantity" placeholder="Sale Quantity">
+                                    <input type="number" class="form-control" id="Quantity" placeholder="Sale Quantity">
                                 </div>
-
+                                <div class="form-group col-md-12">
+                                    <label for="Total">Total</label>
+                                    <input class="form-control" type="text" name="currency-field" id="currency-field" pattern="^\P\d{1,3}(,\d{3})*(\.\d+)?P" value="" data-type="currency" placeholder="P 0.00">
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-rounded">Save</button>
                             <button type="button" class="btn btn-default btn-rounded" data-dismiss="modal">Cancel</button>
