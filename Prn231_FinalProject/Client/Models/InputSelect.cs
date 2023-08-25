@@ -1,6 +1,4 @@
-﻿using Client.Models;
-
-namespace API.Models;
+﻿namespace Client.Models;
 
 public partial class InputSelect
 {
@@ -10,7 +8,9 @@ public partial class InputSelect
 
     public int? Quantity { get; set; }
 
+    public string IdOutputInfo { get; set; }
+
     public virtual InputInfo IdInputInfoNavigation { get; set; }
 
-    public virtual ICollection<OutputInfo> OutputInfos { get; set; } = new List<OutputInfo>();
+    public virtual OutputInfo IdOutputInfoNavigation { get; set; }
 }

@@ -1,7 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿@using API.Models;
+@*
 *@
 @{
+    var myList = ViewData["MyList"] as List<OutputInfo>;
 }
 <div class="content-wrapper" style="background-color:#bddcff;">
     <div class="row">
@@ -32,25 +33,28 @@
                                     <th>ProductName</th>
                                     <th>Customer</th>
                                     <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>Status</th>
                                     <th>Date Recorded</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    @foreach (var item in myList)
+                                    {
+                                        <td>@item.Id</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>@item.Count</td>
+                                        <td>@item.Status</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="#" data-toggle="tooltip" title="Edit">
+                                                <button type="button" class="btn btn-primary btn-sm btn-rounded" data-toggle="modal" data-target="#edit-Output"><i class="ti-pencil-alt btn-icon-prepend"></i></button>
+                                            </a>
+                                        </td>
+                                    }
 
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>
-                                        <a href="#" data-toggle="tooltip" title="Edit">
-                                            <button type="button" class="btn btn-primary btn-sm btn-rounded" data-toggle="modal" data-target="#edit-Output"><i class="ti-pencil-alt btn-icon-prepend"></i></button>
-                                        </a>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -8,8 +8,8 @@ namespace API.Controllers
     [ApiController]
     public class InputController : ControllerBase
     {
-        private QuanLyKhoContext _context;
-        public InputController(QuanLyKhoContext context)
+        private QuanlyKhoContext _context;
+        public InputController(QuanlyKhoContext context)
         {
             _context = context;
         }

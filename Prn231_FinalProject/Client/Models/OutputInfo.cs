@@ -1,4 +1,4 @@
-﻿using API.Models;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace Client.Models;
 
@@ -18,11 +18,12 @@ public partial class OutputInfo
 
     public string IdOutput { get; set; }
 
+    [AllowNull]
     public virtual Customer IdCustomerNavigation { get; set; }
-
-    public virtual InputSelect IdInputSelctNavigation { get; set; }
-
-    public virtual Object IdObjectNavigation { get; set; }
-
+    [AllowNull]
+    public virtual Client.Models.Object IdObjectNavigation { get; set; }
+    [AllowNull]
     public virtual Output IdOutputNavigation { get; set; }
+    [AllowNull]
+    public virtual ICollection<InputSelect>? InputSelects { get; set; } = new List<InputSelect>();
 }

@@ -7,8 +7,8 @@ namespace API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private QuanLyKhoContext _context;
-        public CustomerController(QuanLyKhoContext context)
+        private QuanlyKhoContext _context;
+        public CustomerController(QuanlyKhoContext context)
         {
             _context = context;
         }
@@ -25,7 +25,7 @@ namespace API.Controllers
                 var customers = _context.Customers
                     .ToList();
 
-                return Ok(customers); 
+                return Ok(customers);
             }
             catch (Exception ex)
             {

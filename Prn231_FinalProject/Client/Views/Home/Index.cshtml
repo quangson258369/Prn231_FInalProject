@@ -8,8 +8,8 @@
     string data2 = Context.Session.GetString("info");
     List<InputInfo> input = System.Text.Json.JsonSerializer.Deserialize<List<InputInfo>>(data2);
 
-    //string data3 = Context.Session.GetString("output");
-    //List<OutputInfo> output = System.Text.Json.JsonSerializer.Deserialize<List<OutputInfo>>(data3);
+    string data3 = Context.Session.GetString("output");
+    List<API.Models.OutputInfo> output = System.Text.Json.JsonSerializer.Deserialize<List<API.Models.OutputInfo>>(data3);
 }
 <div class="content-wrapper" style="background-color:#bddcff;">
     <div class="row">
@@ -138,13 +138,17 @@
                             </thead>
                             <tbody>
 
-                                <tr>
+                                @foreach (var item in output)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.IdObjectNavigation.DisplayName</td>
+                                        <td>@item.Count</td>
+                                        <td></td>
 
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                </tr>
+                                    </tr>
+
+                                }
                             </tbody>
                         </table>
                     </div>

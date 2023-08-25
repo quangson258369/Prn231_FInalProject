@@ -1,7 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Client.Models
+@using Microsoft.AspNetCore.Http
 @{
+    string data = Context.Session.GetString("product");
+    List<Client.Models.Object> inStocks = System.Text.Json.JsonSerializer.Deserialize<List<Client.Models.Object>>(data);
 }
 <div class="content-wrapper" style="background-color:#bddcff;">
     <div class="row">
@@ -41,11 +42,20 @@
                                             <button type="button" class="btn btn-primary btn-sm btn-rounded" data-toggle="modal" data-target="#edit-Product"><i class="ti-pencil-alt btn-icon-prepend"></i></button>
                                         </a>
                                     </td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
-                                    <td>Data</td>
+                                <tr>
+
+                                        @foreach (var item in inStocks)
+                                        {
+                                    <tr>
+
+                                        <td>@item.Id</td>
+                                        <td>@item.DisplayName</td>
+                                        <td>@item.IdUnitNavigation.DisplayName</td>
+                                        <td>@item.IdSuplierNavigation.DisplayName</td>
+                                    </tr>
+                                        }
+
+                                </tr>
                                 </tr>
                             </tbody>
                         </table>

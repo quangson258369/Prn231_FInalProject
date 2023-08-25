@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace API.Models;
 
@@ -19,11 +18,12 @@ public partial class OutputInfo
 
     public string IdOutput { get; set; }
 
-    public virtual Customer IdCustomerNavigation { get; set; }
-
-    public virtual InputSelect IdInputSelctNavigation { get; set; }
-
+    [AllowNull]
+    public virtual API.Models.Customer IdCustomerNavigation { get; set; }
+    [AllowNull]
     public virtual Object IdObjectNavigation { get; set; }
-
-    public virtual Output IdOutputNavigation { get; set; }
+    [AllowNull]
+    public virtual API.Models.Output IdOutputNavigation { get; set; }
+    [AllowNull]
+    public virtual ICollection<InputSelect>? InputSelects { get; set; } = new List<InputSelect>();
 }

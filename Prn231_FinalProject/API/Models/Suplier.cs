@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace API.Models;
+﻿namespace API.Models;
 
 public partial class Suplier
 {
@@ -13,9 +10,9 @@ public partial class Suplier
 
     public string Phone { get; set; }
 
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
-    public string MoreInfo { get; set; }
+    public string? MoreInfo { get; set; }
 
     public DateTime? ContractDate { get; set; }
 

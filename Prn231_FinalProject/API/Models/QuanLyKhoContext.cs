@@ -97,10 +97,15 @@ public partial class QuanlyKhoContext : DbContext
 
             entity.Property(e => e.Id).HasMaxLength(128);
             entity.Property(e => e.IdInputInfo).HasMaxLength(128);
+            entity.Property(e => e.IdOutputInfo).HasMaxLength(128);
 
             entity.HasOne(d => d.IdInputInfoNavigation).WithMany(p => p.InputSelects)
                 .HasForeignKey(d => d.IdInputInfo)
                 .HasConstraintName("FK_InputSelect_InputInfo");
+
+            entity.HasOne(d => d.IdOutputInfoNavigation).WithMany(p => p.InputSelects)
+                .HasForeignKey(d => d.IdOutputInfo)
+                .HasConstraintName("FK_InputSelect_OutputInfo");
         });
 
         modelBuilder.Entity<Object>(entity =>
@@ -154,11 +159,6 @@ public partial class QuanlyKhoContext : DbContext
                 .HasForeignKey(d => d.IdCustomer)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__OutputInf__IdCus__3B75D760");
-
-            entity.HasOne(d => d.IdInputSelctNavigation).WithMany(p => p.OutputInfos)
-                .HasForeignKey(d => d.IdInputSelct)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_OutputInfo_InputSelect");
 
             entity.HasOne(d => d.IdObjectNavigation).WithMany(p => p.OutputInfos)
                 .HasForeignKey(d => d.IdObject)

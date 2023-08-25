@@ -32,9 +32,9 @@ namespace Client.Controllers
             string strData2 = await response2.Content.ReadAsStringAsync();
             List<Models.InputInfo> listInfo = JsonSerializer.Deserialize<List<Models.InputInfo>>(strData2, option);
 
-            //HttpResponseMessage response3 = await client.GetAsync(OutputApiUrl);
-            //string strData3 = await response3.Content.ReadAsStringAsync();
-            //List<Models.OutputInfo> listOutput = JsonSerializer.Deserialize<List<Models.OutputInfo>>(strData3, option);
+            HttpResponseMessage response3 = await client.GetAsync(OutputApiUrl);
+            string strData3 = await response3.Content.ReadAsStringAsync();
+            List<Models.OutputInfo> listOutput = JsonSerializer.Deserialize<List<Models.OutputInfo>>(strData3, option);
 
             List<InStock> inStocks = new List<InStock>();
             foreach (var item in listProducts)
@@ -50,7 +50,7 @@ namespace Client.Controllers
 
             HttpContext.Session.SetString("product", System.Text.Json.JsonSerializer.Serialize(inStocks, option));
             HttpContext.Session.SetString("info", System.Text.Json.JsonSerializer.Serialize(listInfo, option));
-            //HttpContext.Session.SetString("output", System.Text.Json.JsonSerializer.Serialize(listOutput, option));
+            HttpContext.Session.SetString("output", System.Text.Json.JsonSerializer.Serialize(listOutput, option));
 
             return View();
         }

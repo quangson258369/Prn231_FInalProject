@@ -50,7 +50,13 @@ namespace Client.Controllers
             {
                 selectListCustomer.Add(new SelectListItem { Text = "" + item.DisplayName, Value = "" + item.Id });
             }
-            ViewBag.SelectListCustomer = selectListCustomer;
+            ViewData["SelectListCustomer"] = selectListCustomer;
+
+
+            HttpResponseMessage response3 = await client.GetAsync(OutputApiUrl);
+            string strData3 = await response3.Content.ReadAsStringAsync();
+            List<Models.OutputInfo> listOutputInfos = JsonSerializer.Deserialize<List<Models.OutputInfo>>(strData3, option);
+            ViewData["MyList"] = listOutputInfos;
 
             return View();
         }
@@ -83,7 +89,7 @@ namespace Client.Controllers
             string customerId = Request.Form["customerId"];
 
             HttpResponseMessage response2 = await client.GetAsync(InputApiUrl);
-            string strData2 = await response.Content.ReadAsStringAsync();
+            string strData2 = await response2.Content.ReadAsStringAsync();
             var option2 = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
             List<Models.InputInfo> listInfo = JsonSerializer.Deserialize<List<Models.InputInfo>>(strData2, option2);
             var count = 0;
@@ -108,12 +114,20 @@ namespace Client.Controllers
                 IdOutput = "" + id,
                 IdCustomer = Int32.Parse(customerId),
                 IdInputSelct = "" + GenerateRandom(),
+                IdCustomerNavigation = { },
+                InputSelects = { },
+                IdObjectNavigation = { },
+                IdOutputNavigation = { }
+
+
             };
             string data2 = JsonSerializer.Serialize(output);
-            await client.PostAsync(OutputApiUrl + "/CreateNewOutPutInfos", new StringContent(data, Encoding.UTF8, "application/json"));
+            await client.PostAsync(OutputApiUrl + "/CreateNewOutPutInfos", new StringContent(data2, Encoding.UTF8, "application/json"));
+
+
             return RedirectToAction(nameof(Index));
 
-            return View();
+
         }
 
         [HttpPost]
